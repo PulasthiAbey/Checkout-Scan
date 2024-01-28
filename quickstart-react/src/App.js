@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import mondaySdk from "monday-sdk-js";
-import AttentionBox from "monday-ui-react-core/dist/AttentionBox.js";
 
 import "./App.css";
 import "monday-ui-react-core/dist/main.css";
-
+import AttentionBox from "monday-ui-react-core/dist/AttentionBox";
 const monday = mondaySdk();
 
 const App = () => {
