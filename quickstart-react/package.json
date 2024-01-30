@@ -13,8 +13,10 @@
   },
   "dependencies": {
     "@mondaycom/apps-sdk": "^2.1.2",
+    "html-to-image": "^1.11.11",
     "monday-sdk-js": "^0.5.0",
-    "monday-ui-react-core": "^1.54.0"
+    "monday-ui-react-core": "^1.54.0",
+    "react-qr-code": "^2.0.12"
   },
   "eslintConfig": {
     "extends": "react-app"

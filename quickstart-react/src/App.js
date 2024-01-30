@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import mondaySdk from "monday-sdk-js";
 
+import QrCodeView from "./Containers/Home/QrCodeView";
+
 import "./App.css";
 import "monday-ui-react-core/dist/main.css";
-import AttentionBox from "monday-ui-react-core/dist/AttentionBox";
+
 const monday = mondaySdk();
 
 const App = () => {
@@ -17,18 +19,16 @@ const App = () => {
     });
   }, []);
 
-  const attentionBoxText = `Hello, your user_id is: ${
-    context ? context.user.id : "still loading"
-  }.
-  Let's start building your amazing app, which will change the world!`;
-
   return (
     <div className="App">
-      <AttentionBox
-        title="Hello Monday Apps!"
-        text={attentionBoxText}
-        type="success"
-      />
+      <div className="container">
+        <div className="row">
+          <h2 className="header">SCAN ME</h2>
+        </div>
+        <div className="row">
+          <QrCodeView />
+        </div>
+      </div>
     </div>
   );
 };
