@@ -1,25 +1,36 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const userRoutes = require("./routes/userRoutes");
-const productRoutes = require("./routes/productRoutes");
+require("dotenv").config();
+
+const boardItemRoutes = require("./routes/boardItemRoutes");
 
 const app = express();
 
 // Connect to MongoDB
-mongoose.connect("mongodb://localhost:27017/myapp", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose
+  .connect(
+    "mongodb+srv://admin:yWH0d7y8uvH63J7b@demo.edxpbsr.mongodb.net/?retryWrites=true&w=majority"
+  )
+  .then((data) => {
+    console.log("Connected to MongoDB");
+  })
+  .catch((err) => {
+    console.error("Error connecting to MongoDB");
+    console.log(err);
+  });
 
 // Middleware
 app.use(express.json());
 
 // Routes
-app.use("/users", userRoutes);
-app.use("/products", productRoutes);
+app.get("/api", (req, res) => {
+  res.send("API for Monday.com integration");
+});
+
+app.use("/api/web-hooks", boardItemRoutes);
 
 // Start the server
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8030;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
