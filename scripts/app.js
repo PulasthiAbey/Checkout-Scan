@@ -1,4 +1,5 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 require("dotenv").config();
 
@@ -21,6 +22,7 @@ mongoose
 
 // Middleware
 app.use(express.json());
+app.use(bodyParser.json());
 
 // Routes
 app.get("/api", (req, res) => {

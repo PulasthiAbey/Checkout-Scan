@@ -6,6 +6,6 @@ const boardItemSchema = new mongoose.Schema({
   columnValue: String,
 });
 
-const BoardItem = mongoose.model("BoardItem", boardItemSchema);
+const BoardItem = mongoose.model("Board_Item", boardItemSchema);
 
 module.exports = BoardItem;
